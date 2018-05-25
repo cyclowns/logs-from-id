@@ -9,3 +9,4 @@ In the future:
 - Returns logs.tf URL
 - Returns average DPM of last 10 logs
 - Returns date of latest log
+- AHK script that functions from a steam page
