@@ -2,7 +2,6 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 const SteamID = require('steamid');
 const Promise = require('promise');
-const readline = require('readline');
 
 const apikey = "E84E479671BF539828C2D471A9FF835C"; //who cares
 
@@ -137,12 +136,14 @@ function startInput() //starts the input in console
 		console.log(`Average kills: ${stats.kills.avg}`);
 		console.log(`Average deaths: ${stats.deaths.avg}`);
 		console.log(`Average assists: ${stats.assists.avg}`);
+		console.log("\nPress Ctrl+C to exit");
 	});
 }
 
 startInput();
 
-//helpers.getAvgPlayerStats(`76561198062263639`, 5)
-//	.then(function(statlist){
-//		console.log(statlist.kills.avg);
-//	});
+//stop program from exiting without ctrl+c
+
+setInterval(function(){
+	return process.exit(1);
+}, 1000 * 60 * 60)
