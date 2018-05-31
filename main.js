@@ -120,18 +120,19 @@ function startInput() //starts the input in console
 {
 	process.argv.forEach(async function(val, index, array){
 		if(index == 0 || index == 1) return;
-		console.log(`Stats for player ${index - 1}, ${val}`);
+		console.log(`Player ${index - 1}, ${val}`);
 		var id;
 		try
 		{
-			var id = new SteamID(val);
+			var sid = new SteamID(val);
+			id = val;
 		}
 		catch(e) //invalid format
 		{
-			var id = await helpers.getSteamId(val);
+			id = await helpers.getSteamId(val);
 		}
-		var stats = await helpers.getAvgPlayerStats(id, 10)
-		console.log(`for the past 10 logs:`)
+		var stats = await helpers.getAvgPlayerStats(id, 10);
+		console.log(`\nTheir stats for the past 10 logs:`);
 		console.log(`Average DPM: ${stats.dpm.avg}`);
 		console.log(`Average kills: ${stats.kills.avg}`);
 		console.log(`Average deaths: ${stats.deaths.avg}`);
@@ -141,9 +142,3 @@ function startInput() //starts the input in console
 }
 
 startInput();
-
-//stop program from exiting without ctrl+c
-
-setInterval(function(){
-	return process.exit(1);
-}, 1000 * 60 * 60)
