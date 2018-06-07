@@ -28,6 +28,7 @@ var helpers = //object of helper functions for steam/logs api
 
 	sliceLogList: function(json, num) //cuts off log json at given interval
 	{
+		if(json.logs.length < num) return json.logs;
 		return json.logs.slice(0, num);
 	},
 
@@ -131,8 +132,8 @@ function startInput() //starts the input in console
 		{
 			id = await helpers.getSteamId(val);
 		}
-		var stats = await helpers.getAvgPlayerStats(id, 25);
-		console.log(`\nTheir stats for the past 25 logs:`);
+		var stats = await helpers.getAvgPlayerStats(id, 20);
+		console.log(`\nTheir stats for the past 20 logs:`);
 		console.log(`Average DPM: ${stats.dpm.avg}`);
 		console.log(`Average kills: ${stats.kills.avg}`);
 		console.log(`Average deaths: ${stats.deaths.avg}`);
