@@ -131,8 +131,8 @@ function startInput() //starts the input in console
 		{
 			id = await helpers.getSteamId(val);
 		}
-		var stats = await helpers.getAvgPlayerStats(id, 10);
-		console.log(`\nTheir stats for the past 10 logs:`);
+		var stats = await helpers.getAvgPlayerStats(id, 25);
+		console.log(`\nTheir stats for the past 25 logs:`);
 		console.log(`Average DPM: ${stats.dpm.avg}`);
 		console.log(`Average kills: ${stats.kills.avg}`);
 		console.log(`Average deaths: ${stats.deaths.avg}`);
