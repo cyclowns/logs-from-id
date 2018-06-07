@@ -1,12 +1,11 @@
 # logs-from-id
 
-node.js tool that retrieves TF2 logs and stats of a player based on their steam custom URL
-WIP
+node.js and AHK tool that retrieves TF2 logs and stats of a player based on their steam custom URL
+
+You only need AHK installed for this program to work, the hotkey is **CTRL+F7**
 
 # Features
 
-In the future:
-- Returns logs.tf URL
-- Returns average DPM of last 10 logs
-- Returns date of latest log
-- AHK script that functions from a steam page
+- AHK script that takes vanity url (on steam page) or steam64 url, with CTRL+F7
+- Copies logs.tf profile to clipboard for easy use
+- Returns average stats from player's last 10 logs
